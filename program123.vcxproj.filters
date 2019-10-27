@@ -24,6 +24,9 @@
     <ClCompile Include="Application.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="SingerType.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -53,7 +56,7 @@
     <ClInclude Include="SingerType.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="PlayType.h">
+    <ClInclude Include="TOP10_music.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

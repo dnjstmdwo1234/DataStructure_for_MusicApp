@@ -25,7 +25,6 @@ public:
 	int Replace(T& data); // data를 찾아서 내용변경
 	int Retrieve_SeqS(T& data); // data를 찾아서 해당 Music 정보 출력
 	int Retrieve_Binary(T& data); // data를 binary search 방법으로 찾아서 해당 Music 정보 출력
-	void Display();
 };
 
 template<typename T>
@@ -142,7 +141,7 @@ int SortedList<T>::Get(T & data) { // data를 찾아서 모든 정보를 출력
 //	   of that element has been stored in item; otherwise, item is unchanged.
 	for (int i = 0; i < m_Length; i++) {
 		if (m_Array[i] == data) {
-			m_Array[i].DisplayRecordOnScreen();
+			//m_Array[i].DisplayRecordOnScreen();
 			return i;
 		}
 	}

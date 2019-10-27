@@ -100,6 +100,8 @@ public:
 	void Print();
 	void MakeEmpty();
 
+	int GetNextItem(T& data);
+	void ResetPoint();
 
 
 private:
@@ -108,13 +110,13 @@ private:
 	int m_nMaxQueue;
 	int top;	///< Number of elements.
 	T* items;	///< Pointer for a stack.
-
-
-
+	int m_currentPoint;
 
 };
-
-
+template <typename T>
+void CircularQueueType<T>::ResetPoint() {
+	m_currentPoint = -1;
+}
 template <typename T>
 CircularQueueType<T>::CircularQueueType(int size)
 {
@@ -123,6 +125,7 @@ CircularQueueType<T>::CircularQueueType(int size)
 	m_iRear = size - 1;
 	m_nMaxQueue = size;
 	top = -1;
+	m_currentPoint = -1;
 
 }
 
@@ -134,6 +137,7 @@ CircularQueueType<T>::CircularQueueType()
 	m_iRear = maxsize - 1;
 	m_nMaxQueue = maxsize;
 	top = -1;
+	m_currentPoint = -1;
 }
 
 
@@ -243,6 +247,25 @@ void CircularQueueType<T>::Print()
 			first = (first + 1) % m_nMaxQueue;
 		}
 		cout << endl;
+	}
+}
+
+template<typename T>
+int CircularQueueType<T>::GetNextItem(T& data) {
+	if (IsEmpty()) {
+		cout << "It is empty!" << endl;
+		return 0;
+	}		
+	else
+	{
+		if (m_currentPoint != m_iRear) {
+			m_currentPoint += 1;
+			m_currentPoint = m_iFront;
+			data = items[(m_currentPoint + 1) % m_nMaxQueue];
+			return 1;
+		}
+		return 0;
+		
 	}
 }
 
